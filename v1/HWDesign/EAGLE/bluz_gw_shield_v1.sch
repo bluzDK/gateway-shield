@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4185,6 +4185,23 @@ Source: Epson Toyocom FC-12M.pdf</description>
 <wire x1="7.62" y1="-15.24" x2="10.16" y2="-15.24" width="0.2032" layer="21"/>
 <wire x1="10.16" y1="-15.24" x2="10.16" y2="15.24" width="0.2032" layer="21"/>
 </package>
+<package name="TACTILE_SWITCH_SMD">
+<smd name="1" x="-1.875" y="0.775" dx="0.65" dy="1.25" layer="1" rot="R90"/>
+<smd name="2" x="1.875" y="0.775" dx="0.65" dy="1.25" layer="1" rot="R90"/>
+<smd name="3" x="-1.875" y="-0.775" dx="0.65" dy="1.25" layer="1" rot="R90"/>
+<smd name="4" x="1.875" y="-0.775" dx="0.65" dy="1.25" layer="1" rot="R90"/>
+<text x="-0.889" y="1.778" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-0.889" y="-2.032" size="0.4064" layer="27">&gt;Value</text>
+<wire x1="-1.8" y1="1.5" x2="1.8" y2="1.5" width="0.127" layer="51"/>
+<wire x1="1.8" y1="1.5" x2="1.8" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="1.8" y1="-1.5" x2="-1.8" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="-1.5" x2="-1.8" y2="1.5" width="0.127" layer="51"/>
+<wire x1="-1" y1="1.5" x2="0.9" y2="1.5" width="0.2" layer="21"/>
+<wire x1="-1" y1="-1.5" x2="1" y2="-1.5" width="0.2" layer="21"/>
+<wire x1="-1.8" y1="0.2" x2="-1.8" y2="-0.2" width="0.2" layer="21"/>
+<wire x1="1.8" y1="0.2" x2="1.8" y2="-0.2" width="0.2" layer="21"/>
+<circle x="0" y="0" radius="0.875" width="0.2" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="VREG">
@@ -4247,6 +4264,27 @@ Source: Epson Toyocom FC-12M.pdf</description>
 <pin name="D2" x="17.78" y="-17.78" length="middle" rot="R180"/>
 <pin name="D1" x="17.78" y="-22.86" length="middle" rot="R180"/>
 <pin name="D0" x="17.78" y="-27.94" length="middle" rot="R180"/>
+</symbol>
+<symbol name="SWITCH-MOMENTARY">
+<wire x1="1.905" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="1.905" y1="4.445" x2="1.905" y2="3.175" width="0.254" layer="94"/>
+<wire x1="-1.905" y1="4.445" x2="-1.905" y2="3.175" width="0.254" layer="94"/>
+<wire x1="1.905" y1="4.445" x2="0" y2="4.445" width="0.254" layer="94"/>
+<wire x1="0" y1="4.445" x2="-1.905" y2="4.445" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="0" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="94"/>
+<wire x1="0" y1="4.445" x2="0" y2="3.175" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="0" x2="1.905" y2="1.27" width="0.254" layer="94"/>
+<circle x="-2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
+<circle x="2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
+<text x="-2.54" y="6.35" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-6.35" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="2"/>
+<pin name="3" x="5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="4" x="5.08" y="-2.54" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="2" x="-5.08" y="-2.54" visible="pad" length="short" direction="pas" swaplevel="2"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -4369,6 +4407,25 @@ Source: Epson Toyocom FC-12M.pdf</description>
 <connect gate="G$1" pin="TX" pad="#3 3 @3"/>
 <connect gate="G$1" pin="VCC" pad="#24 24 @24"/>
 <connect gate="G$1" pin="VDDA" pad="#22 22 @22"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TAC_SWITCH" prefix="S" uservalue="yes">
+<description>SMD Tactiile Switch</description>
+<gates>
+<gate name="S" symbol="SWITCH-MOMENTARY" x="0" y="0"/>
+</gates>
+<devices>
+<device name="SMD" package="TACTILE_SWITCH_SMD">
+<connects>
+<connect gate="S" pin="1" pad="1"/>
+<connect gate="S" pin="2" pad="2"/>
+<connect gate="S" pin="3" pad="3"/>
+<connect gate="S" pin="4" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -4998,6 +5055,8 @@ Standard 8.5x11 US Letter frame</description>
 <part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="FRAME1" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
+<part name="RESET" library="Spark" deviceset="TAC_SWITCH" device="SMD"/>
+<part name="GND12" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5012,6 +5071,7 @@ Standard 8.5x11 US Letter frame</description>
 <text x="190.246" y="1.27" size="2.54" layer="94">July 1, 2015</text>
 <text x="269.24" y="7.112" size="3.81" layer="94">B</text>
 <text x="55.88" y="93.98" size="3.048" layer="95">SPI Flash</text>
+<text x="10.16" y="68.58" size="3.048" layer="95">Reset Button</text>
 </plain>
 <instances>
 <instance part="U2" gate="G$1" x="213.36" y="167.64"/>
@@ -5061,6 +5121,8 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="FRAME1" gate="G$2" x="177.8" y="0" smashed="yes">
 <attribute name="SHEET" x="264.16" y="1.27" size="2.54" layer="94" font="vector"/>
 </instance>
+<instance part="RESET" gate="S" x="20.32" y="91.44"/>
+<instance part="GND12" gate="1" x="7.62" y="78.74"/>
 </instances>
 <busses>
 </busses>
@@ -5178,6 +5240,15 @@ Standard 8.5x11 US Letter frame</description>
 <pinref part="U4" gate="G$1" pin="GND@2"/>
 <wire x1="55.88" y1="68.58" x2="88.9" y2="68.58" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="RESET" gate="S" pin="1"/>
+<pinref part="RESET" gate="S" pin="2"/>
+<wire x1="15.24" y1="91.44" x2="15.24" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="88.9" x2="7.62" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="88.9" x2="7.62" y2="81.28" width="0.1524" layer="91"/>
+<junction x="15.24" y="88.9"/>
+<pinref part="GND12" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -5283,18 +5354,6 @@ Standard 8.5x11 US Letter frame</description>
 <pinref part="SWD" gate="-4" pin="S"/>
 <wire x1="228.6" y1="68.58" x2="213.36" y2="68.58" width="0.1524" layer="91"/>
 <label x="213.36" y="68.58" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SWDIO" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="SWDIO"/>
-<wire x1="241.3" y1="172.72" x2="261.62" y2="172.72" width="0.1524" layer="91"/>
-<label x="248.92" y="172.72" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="SWD" gate="-2" pin="S"/>
-<wire x1="228.6" y1="71.12" x2="213.36" y2="71.12" width="0.1524" layer="91"/>
-<label x="213.36" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SS" class="0">
@@ -5524,6 +5583,31 @@ Standard 8.5x11 US Letter frame</description>
 <pinref part="U2" gate="G$1" pin="P0.14"/>
 <wire x1="241.3" y1="165.1" x2="259.08" y2="165.1" width="0.1524" layer="91"/>
 <label x="251.46" y="165.1" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RST" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="SWDIO"/>
+<wire x1="241.3" y1="172.72" x2="261.62" y2="172.72" width="0.1524" layer="91"/>
+<label x="248.92" y="172.72" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="SWD" gate="-2" pin="S"/>
+<wire x1="228.6" y1="71.12" x2="213.36" y2="71.12" width="0.1524" layer="91"/>
+<label x="213.36" y="71.12" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U4" gate="G$1" pin="!RST"/>
+<wire x1="124.46" y1="68.58" x2="139.7" y2="68.58" width="0.1524" layer="91"/>
+<label x="134.62" y="68.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="RESET" gate="S" pin="3"/>
+<pinref part="RESET" gate="S" pin="4"/>
+<wire x1="25.4" y1="91.44" x2="25.4" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="88.9" x2="40.64" y2="88.9" width="0.1524" layer="91"/>
+<junction x="25.4" y="88.9"/>
+<label x="33.02" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
