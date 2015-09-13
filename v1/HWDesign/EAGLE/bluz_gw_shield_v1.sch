@@ -5028,7 +5028,7 @@ Standard 8.5x11 US Letter frame</description>
 <part name="C6" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP" value="12pF"/>
 <part name="C1" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP" value="0.1uF"/>
 <part name="U1" library="Spark" deviceset="MCP1825S" device="-SOT223"/>
-<part name="JP3" library="SparkFun-Connectors" deviceset="USB" device="-MICROB"/>
+<part name="J2" library="SparkFun-Connectors" deviceset="USB" device="-MICROB"/>
 <part name="SWD" library="con-leotronics" deviceset="1365-10" device=""/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0603-CAP" value="0.1uF"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -5055,7 +5055,7 @@ Standard 8.5x11 US Letter frame</description>
 <part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="FRAME1" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
-<part name="RESET" library="Spark" deviceset="TAC_SWITCH" device="SMD"/>
+<part name="S1" library="Spark" deviceset="TAC_SWITCH" device="SMD"/>
 <part name="GND12" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
@@ -5069,9 +5069,10 @@ Standard 8.5x11 US Letter frame</description>
 <text x="195.58" y="7.62" size="5.08" layer="94">Eric Ely</text>
 <text x="195.58" y="17.78" size="3.81" layer="94">Bluz Gateway Shield</text>
 <text x="190.246" y="1.27" size="2.54" layer="94">July 1, 2015</text>
-<text x="269.24" y="7.112" size="3.81" layer="94">B</text>
+<text x="269.24" y="7.112" size="3.81" layer="94">C</text>
 <text x="55.88" y="93.98" size="3.048" layer="95">SPI Flash</text>
 <text x="10.16" y="68.58" size="3.048" layer="95">Reset Button</text>
+<text x="208.28" y="76.2" size="2.54" layer="95">J1</text>
 </plain>
 <instances>
 <instance part="U2" gate="G$1" x="213.36" y="167.64"/>
@@ -5082,7 +5083,7 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="C6" gate="G$1" x="165.1" y="142.24"/>
 <instance part="C1" gate="G$1" x="43.18" y="185.42"/>
 <instance part="U1" gate="G$1" x="63.5" y="195.58"/>
-<instance part="JP3" gate="G$1" x="22.86" y="193.04"/>
+<instance part="J2" gate="G$1" x="22.86" y="193.04"/>
 <instance part="SWD" gate="-1" x="200.66" y="71.12"/>
 <instance part="SWD" gate="-2" x="231.14" y="71.12"/>
 <instance part="SWD" gate="-3" x="200.66" y="68.58"/>
@@ -5121,7 +5122,7 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="FRAME1" gate="G$2" x="177.8" y="0" smashed="yes">
 <attribute name="SHEET" x="264.16" y="1.27" size="2.54" layer="94" font="vector"/>
 </instance>
-<instance part="RESET" gate="S" x="20.32" y="91.44"/>
+<instance part="S1" gate="S" x="20.32" y="91.44"/>
 <instance part="GND12" gate="1" x="7.62" y="78.74"/>
 </instances>
 <busses>
@@ -5129,7 +5130,7 @@ Standard 8.5x11 US Letter frame</description>
 <nets>
 <net name="N$1" class="0">
 <segment>
-<pinref part="JP3" gate="G$1" pin="VBUS"/>
+<pinref part="J2" gate="G$1" pin="VBUS"/>
 <pinref part="U1" gate="G$1" pin="IN"/>
 <wire x1="20.32" y1="195.58" x2="43.18" y2="195.58" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
@@ -5154,7 +5155,7 @@ Standard 8.5x11 US Letter frame</description>
 <wire x1="35.56" y1="193.04" x2="35.56" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="180.34" x2="43.18" y2="180.34" width="0.1524" layer="91"/>
 <junction x="43.18" y="180.34"/>
-<pinref part="JP3" gate="G$1" pin="GND"/>
+<pinref part="J2" gate="G$1" pin="GND"/>
 <wire x1="35.56" y1="193.04" x2="20.32" y2="193.04" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="78.74" y1="182.88" x2="78.74" y2="180.34" width="0.1524" layer="91"/>
@@ -5241,8 +5242,8 @@ Standard 8.5x11 US Letter frame</description>
 <wire x1="55.88" y1="68.58" x2="88.9" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="RESET" gate="S" pin="1"/>
-<pinref part="RESET" gate="S" pin="2"/>
+<pinref part="S1" gate="S" pin="1"/>
+<pinref part="S1" gate="S" pin="2"/>
 <wire x1="15.24" y1="91.44" x2="15.24" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="88.9" x2="7.62" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="7.62" y1="88.9" x2="7.62" y2="81.28" width="0.1524" layer="91"/>
@@ -5602,8 +5603,8 @@ Standard 8.5x11 US Letter frame</description>
 <label x="134.62" y="68.58" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RESET" gate="S" pin="3"/>
-<pinref part="RESET" gate="S" pin="4"/>
+<pinref part="S1" gate="S" pin="3"/>
+<pinref part="S1" gate="S" pin="4"/>
 <wire x1="25.4" y1="91.44" x2="25.4" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="88.9" x2="40.64" y2="88.9" width="0.1524" layer="91"/>
 <junction x="25.4" y="88.9"/>
